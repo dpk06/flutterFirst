@@ -1,4 +1,5 @@
 import 'package:app_flutter/Pages/home_Page.dart';
+import 'package:app_flutter/Utils/Constants.dart';
 import 'package:app_flutter/bgImage.dart';
 import 'package:flutter/material.dart';
 
@@ -67,7 +68,9 @@ class _LoginPageState extends State<LoginPage> {
                         padding: const EdgeInsets.all(8.0),
                         child: ElevatedButton(
                           onPressed: () {
-                           Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            Constants.prefs.setBool("loggedIn", true);
+                           // Navigator.push(context, MaterialPageRoute(builder: (context) => Homepage()));
+                            Navigator.pushReplacementNamed(context, "/home");
                           },
                           child: Text("Sign in"),
                           style: TextButton.styleFrom(primary: Colors.white),
